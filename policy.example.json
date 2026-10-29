@@ -1,0 +1,36 @@
+{
+  "allowed_algorithms": [
+    "RandomX",
+    "Yescrypt",
+    "YescryptR32",
+    "KawPOW",
+    "X11",
+    "HoohashPepeW",
+    "MegaBTX",
+    "BC3Hash",
+    "Take2"
+  ],
+  "allowed_pools": [
+    "Zpool",
+    "Nanopool",
+    "NiceHash",
+    "ViaBTC",
+    "Kryptex",
+    "MoneroOcean"
+  ],
+  "confidence_multiplier": 2,
+  "electricity_fiat_kwh": null,
+  "fiat_currency": "EUR",
+  "history_seconds": 86400,
+  "market_max_age_seconds": 900,
+  "market_max_deviation_ratio": 0.02,
+  "market_min_sources": 2,
+  "max_age_seconds": 900,
+  "max_temperature_c": 80,
+  "min_improvement_btc_day": 1e-06,
+  "min_improvement_ratio": 0.1,
+  "min_sample_spacing_seconds": 60,
+  "min_samples": 6,
+  "min_span_seconds": 300,
+  "mode": "shadow"
+}
