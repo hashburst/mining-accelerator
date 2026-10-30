@@ -4,30 +4,32 @@ Canonical repository for HashBurst AI1 mining optimization.
 
 ## Status
 
-Current integration target: **0.1.3**. Development / release-candidate preparation. Production APPLY remains disabled.
+The current integration target is **0.1.3**. Production application remains disabled while the release-candidate line is under validation.
 
 ## Responsibility
 
-AI1 performs the analytical pipeline:
+AI1 analyzes mining telemetry and operating history to produce signed optimization proposals.
+
+The processing sequence is:
 
 `OBSERVE -> PREDICT -> DECIDE -> SIGNED PROPOSAL`
 
-It evaluates empirical worker/profile history, telemetry health, thermal state and economic inputs. It does not own Node identity, signed controller authorization, TEP, Federation or permanent miner execution.
+It evaluates worker and profile history, telemetry quality, thermal conditions and economic inputs. Node identity, controller authorization, TEP, Federation and permanent miner execution remain outside the Accelerator.
 
 ## Safety boundary
 
-The Accelerator may recommend or propose. The HashBurst Node control plane authorizes actions. MiningControlProvider performs only locally bound provider operations.
+The Accelerator produces recommendations and signed proposals. The HashBurst Node control plane decides whether an authorized action may proceed. MiningControlProvider is limited to operations exposed by the locally configured provider.
 
-The first RC must preserve:
+The release-candidate safety requirements include:
 
 - shadow mode
 - `apply_supported=false`
 - no arbitrary miner command execution
-- no wallet/credential mutation
-- no silent history or policy mutation
+- no wallet or credential changes
+- no unrecorded changes to history or policy
 
 ## Compatibility
 
-HashBurst Node dev3/dev4 Stage A exercised the bridge with Accelerator 0.1.2. The current target is 0.1.3. Contract tests must prove schema/semantic compatibility before Node v0.1.0-rc1.
+The current integration target is Mining Accelerator 0.1.3. Compatibility with the HashBurst Node control contract is verified through contract tests covering the exchanged schemas and their required behavior.
 
-AI2 solo-mining search-space segmentation is a separate subsystem and is not silently folded into AI1.
+AI2 handles solo-mining search-space segmentation as a separate subsystem. Its responsibilities and execution path remain independent from AI1.
